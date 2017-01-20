@@ -28,6 +28,18 @@ func (_ tApp) Index(
 }
 
 
+type tTop struct {}
+var Top tTop
+
+
+func (_ tTop) Index(
+		) string {
+	args := make(map[string]string)
+	
+	return revel.MainRouter.Reverse("Top.Index", args).Url
+}
+
+
 type tApiV1Controller struct {}
 var ApiV1Controller tApiV1Controller
 

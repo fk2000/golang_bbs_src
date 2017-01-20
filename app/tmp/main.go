@@ -7,11 +7,12 @@ import (
 	"github.com/revel/revel"
 	_ "github.com/fk2000/golang_bbs_src/app"
 	controllers "github.com/fk2000/golang_bbs_src/app/controllers"
-	controllers0 "github.com/fk2000/golang_bbs_src/app/controllers/api/v1"
+	controllers0 "github.com/fk2000/golang_bbs_src/app/controllers/Top"
+	controllers1 "github.com/fk2000/golang_bbs_src/app/controllers/api/v1"
 	tests "github.com/fk2000/golang_bbs_src/tests"
-	controllers2 "github.com/revel/modules/static/app/controllers"
+	controllers3 "github.com/revel/modules/static/app/controllers"
 	_ "github.com/revel/modules/testrunner/app"
-	controllers1 "github.com/revel/modules/testrunner/app/controllers"
+	controllers2 "github.com/revel/modules/testrunner/app/controllers"
 	"github.com/revel/revel/testing"
 )
 
@@ -58,7 +59,21 @@ func main() {
 			
 		})
 	
-	revel.RegisterController((*controllers0.ApiV1Controller)(nil),
+	revel.RegisterController((*controllers0.Top)(nil),
+		[]*revel.MethodType{
+			&revel.MethodType{
+				Name: "Index",
+				Args: []*revel.MethodArg{ 
+				},
+				RenderArgNames: map[int][]string{ 
+					11: []string{ 
+					},
+				},
+			},
+			
+		})
+	
+	revel.RegisterController((*controllers1.ApiV1Controller)(nil),
 		[]*revel.MethodType{
 			&revel.MethodType{
 				Name: "HandleBadRequestError",
@@ -87,7 +102,7 @@ func main() {
 			
 		})
 	
-	revel.RegisterController((*controllers1.TestRunner)(nil),
+	revel.RegisterController((*controllers2.TestRunner)(nil),
 		[]*revel.MethodType{
 			&revel.MethodType{
 				Name: "Index",
@@ -128,7 +143,7 @@ func main() {
 			
 		})
 	
-	revel.RegisterController((*controllers2.Static)(nil),
+	revel.RegisterController((*controllers3.Static)(nil),
 		[]*revel.MethodType{
 			&revel.MethodType{
 				Name: "Serve",
@@ -152,7 +167,7 @@ func main() {
 			
 		})
 	
-	revel.RegisterController((*controllers0.ApiV1Comments)(nil),
+	revel.RegisterController((*controllers1.ApiV1Comments)(nil),
 		[]*revel.MethodType{
 			&revel.MethodType{
 				Name: "Index",
